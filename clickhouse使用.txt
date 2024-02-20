@@ -41,3 +41,15 @@ clickhouse删除表格中所有记录：TRUNCATE TABLE my_table2;  创建时间 
 
 
 cd /data/psn/background-image-search/other && /data/soft/hadoop-2.7.2/bin/hive -f background_image_search_v1.sql | sed 's/[\t]/,/g' >label.csv > /data/psn/background-image-search/other/logging4.log 2>&1
+
+
+
+
+
+
+
+
+
+
+
+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
