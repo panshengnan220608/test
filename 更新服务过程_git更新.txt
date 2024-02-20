@@ -1,0 +1,84 @@
+1、修改代码,并提交到master上
+git branch -a
+git pull origin develop
+git status
+git add .
+git commit -m 'comment'
+git push origin develop
+
+2、将develop分支merge到master分支中：
+打开网页版的master分支，在左侧处找到“Merge Requests”按钮
+点击“New merge request”
+Source branch选择develop分支
+Target branch 选择master分支
+点击“compare branches and continue”
+Title下name
+Description写comment
+点击submit nerge request
+网页跳转到另外一个地址，选择Merge按钮
+到此，merge结束
+
+3、给master的当前代码打tag：
+git checkout master
+git tag:查看现有的tag有哪些
+git tag "tag_name" 命名新的tag名字
+git push origin tag_name最后使用git push命令将本地打好的标签推送到远程仓库：
+
+
+4、找到服务器的代码地址，执行下面操作
+git fetch：拉取所有的tag，如果没有这一步，则不会显示新的tag
+
+git tag ：显示所有的tag
+
+git checkout tag_name 切换到指定的tag
+
+5、cd 到代码的服务service，执行bash run_gang_fraud.sh restart重新启动命令
+
+6、查看log是否启动成功
+
+7、用数据测试
+
+
+
+
+8\解决merge时候冲突的办法和流程：merge develop to master
+
+1、首先，切换到 master 分支：
+git checkout master
+2、然后，执行合并操作将 develop 分支合并到 master 分支：
+git merge develop
+3、如果发生冲突，Git 会提示冲突信息。你可以使用以下命令查看产生冲突的文件列表：
+git status
+4、选择其中一个具有冲突的文件，并打开它。在该文件中，你会看到类似下面的标记：
+<<<<<<< HEAD
+// 代码来自于当前分支（master）的版本
+=======
+// 代码来自于要合并的分支（develop）的版本
+>>>>>>> develop
+上述标记将冲突的代码块分成两个部分：<<<<<<< HEAD 到 ======= 是当前分支 (master) 的版本，而 ======= 到 >>>>>>> develop 是要合并的分支 (develop) 的版本。
+
+在这些标记周围，你可以找到引起冲突的具体代码行。根据需要解决冲突，可以手动编辑文件，选择保留哪个版本的代码或者进行修改。
+
+5、解决冲突后，保存文件并使用以下命令将解决的冲突提交到 master 分支：
+git add <冲突解决的文件>
+git commit -m "解决合并冲突"
+在上述命令中，你需要将 <冲突解决的文件> 替换为实际解决冲突的文件名。
+
+重复上述步骤，直到所有冲突都解决完毕。完成后，develop 分支的更改将被合并到 master 分支中，并且冲突将得到解决。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
