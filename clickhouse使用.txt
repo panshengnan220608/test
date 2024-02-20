@@ -1,0 +1,43 @@
+进入数据库：clickhouse-client -h 10.100.34.32 -u default --password=ck  
+show databases;
+show tables;
+use ***;
+desc ***;
+
+[CLICK_HOUSE]
+CK_HOST: 10.100.34.32
+CK_PORT: 9000
+CK_DATABASE: kg
+CK_USER: default
+CK_PASSWORD: ck
+
+将数据集中的数据转为csv保存本地：clickhouse-client -h 10.100.34.32 -u default --password=ck --query "SELECT * FROM kg.kg_risk_intopieces limit 100000 FORMAT CSV" > kg_risk_intopieces.csv
+
+将数据集中的数据转为csv保存本地（带头部列名称）：clickhouse-client -h 10.100.34.32 -u default --password=ck  --query "SELECT * FROM kg.kg_risk_intopieces limit 100000 FORMAT CSVWithNamesAndTypes" > kg_risk_intopieces.csv
+将数据集中的数据转为csv保存本地（带头部列名称）：clickhouse-client -h 10.100.34.32 -u default --password=ck  --query "SELECT * FROM kg.kg_binlog_canal limit 100000 FORMAT CSVWithNamesAndTypes" > kg_binlog_canal.csv
+将数据集中的数据转为csv保存本地（带头部列名称）：clickhouse-client -h 10.100.34.32 -u default --password=ck  --query "SELECT * FROM kg.kg_binlog_his limit 100000 FORMAT CSVWithNamesAndTypes" > kg_binlog_his.csv
+
+
+通过sql语句新建表格：clickhouse-client --user default --password=ck --query="$(cat /datasdb/kg/baseenv/psn/tmp/feature_db.sql)"
+
+删除表格：DROP TABLE default.feature_db.sql;
+
+DROP TABLE kg.search_image_feature;
+clickhouse删除表格中所有记录：TRUNCATE TABLE my_table2;  创建时间 更新时间  匹配结果
+
+
+45 15 * * * export export HADOOP_HOME=/data/soft/hive-2.0.0 && export PATH=$PATH:$HADOOP_HOME/bin && cd /data/psn/background-image-search/other && /data/soft/hive-2.0.0/bin/hive -f background_image_search_v1.sql | sed 's/[\t]/,/g' > label.csv > /data/psn/background-image-search/other/logging4.log 2>&1
+
+
+28 15 * * * export export HADOOP_HOME=/data/soft/hive-2.0.0 && export PATH=$PATH:$HADOOP_HOME/bin && cd /data/psn/background-image-search/other && bash run.sh > /data/psn/background-image-search/other/logging55.log 2>&1
+
+
+
+
+
+
+
+
+
+
+cd /data/psn/background-image-search/other && /data/soft/hadoop-2.7.2/bin/hive -f background_image_search_v1.sql | sed 's/[\t]/,/g' >label.csv > /data/psn/background-image-search/other/logging4.log 2>&1
