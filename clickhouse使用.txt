@@ -52,4 +52,4 @@ cd /data/psn/background-image-search/other && /data/soft/hadoop-2.7.2/bin/hive -
 
 
 
-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
+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_______222
